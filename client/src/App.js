@@ -12,20 +12,30 @@ const GET_CATEGORIES = gql`
   `;
 
  const GET_RANDOM_JOKE = gql`
-  query getRandomJokeByCategory($category: String!){
-  randomJoke(category: $category){
-    id
-    category
-    content
+     query getRandomJokeByCategory($category: String!){
+       randomJoke(category: $category){
+         id
+         category
+         content
     
+       }
   }
-}
  `; 
+
+function GetRandomJoke({ category }) {
+  const {loading, error, data} =useQuery(GET_RANDOM_JOKE, {
+    variables: { category: category }
+  });
+  if (loading) return null;
+  if (error) return `Error! ${error}`;
+
+  return data.randomJoke.content;
+}
 
 const CategoryTile = ({category}) => (
   <div className="Card">
     <a href={`https://github.com/`} className="Card--link">
-      {category}
+      {GetRandomJoke({category})}
     </a>
   </div>
 )
@@ -40,7 +50,7 @@ function App() {
     <main className="App">
       <h1>Chuck Norris jokes :)</h1>
       <body>
-        <div>
+        <div className="card-rapper">
       {data.categories.map((d, idx) => (
         <CategoryTile key={idx} category={d.name} />
       ))}
