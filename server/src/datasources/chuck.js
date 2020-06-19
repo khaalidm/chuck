@@ -16,7 +16,7 @@ class ChuckNorrisApi extends RESTDataSource {
 
   async getRandomJokeByCategory(categoryName) {
       const response = await this.get('jokes/random?', categoryName);
-      return this.jokeReducer(response);
+      return this.jokeReducer(response)
   }
 
   categoryReducer(category) {
@@ -26,7 +26,6 @@ class ChuckNorrisApi extends RESTDataSource {
   }
 
   jokeReducer(joke) {
-
       return {
           id: joke.id ,
           category: joke.categories,

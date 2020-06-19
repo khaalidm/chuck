@@ -4,7 +4,6 @@ const typeDefs = gql`
 
 type Category {
     name: String
-    # joke: [Joke]
 },
 type Joke {
     id: ID!

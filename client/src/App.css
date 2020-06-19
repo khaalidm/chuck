@@ -27,45 +27,26 @@
 .App-link {
   color: #61dafb;
 }
-
-
-.Card {
-  max-width: 600px;
-  margin: auto;
-  margin-bottom: 0.1rem;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
+.chuck-image {
+  max-width: 1000px;
+  max-height: 400px;
+  padding-top: 5px;
+  padding-bottom: 10px;
 }
-.Card > div {
-  display: flex;
-  align-items: center;
+.heading-style {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
-.Card--avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 100%;
-  margin-right: 0.5rem;
+.drop-down-style {
+  padding-top: 15px;
 }
-
-.Card--name {
-  text-transform: capitalize;
-  font-size: 1.1rem;
+.jokeParagraphStyle {
+  text-align: center;
+  background-color: lightgrey;
+  font-family: cursive;
+  font-style: italic;
 }
-
-.Card--link {
-  text-decoration: none;
-  background: #297563;
-  color: #fff;
-  padding: 0.45rem 0.7rem;
-  border-radius: 20px;
-  width: 75px;
-}
-.card-wrapper {
-  align-items: center;
+.divParagraphStyle {
+  padding-top: 15px;
 }
 
 @keyframes App-logo-spin {
@@ -76,3 +57,5 @@
     transform: rotate(360deg);
   }
 }
+
+
