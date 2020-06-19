@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import ChuckGif from "../src/assets/chuck.jpg";
 import Image from "react-bootstrap/Image";
@@ -29,30 +30,26 @@ const GET_RANDOM_JOKE = gql`
 `;
 
 function GetRandomJoke(category) {
-	console.log({ category });
 	const { loading, error, data } = useQuery(GET_RANDOM_JOKE, {
 		variables: { category: category.name },
 	});
-	// if (loading) return null;
-	// if (error) return `Error! ${error}`;
+
+	if (error) return <h1>Something went wrong!</h1>;
+	if (loading) return <h1>Loading...</h1>;
 
 	return { randomJoke: data };
 }
 
 function App() {
 	const { loading, error, data } = useQuery(GET_CATEGORIES);
-	const [setJoke, joke] = useState(false);
-	const [category, setCategory] = useState(false);
-	const { randomJoke } = GetRandomJoke(category);
-
+	let [category, setCategory] = useState(false);
+	let { randomJoke } = GetRandomJoke(category);
 	if (error) return <h1>Something went wrong!</h1>;
 	if (loading) return <h1>Loading...</h1>;
 
-	console.log({ randomJoke });
-
 	return (
 		<main className="App">
-			<container>
+			<Container>
 				<Row>
 					<Col>
 						<h1 className="heading-stlye">Chuck Jokes</h1>
@@ -70,9 +67,9 @@ function App() {
 							title="Select Category"
 							className="drop-down-style"
 						>
-							{data.categories.map((d) => (
-								<Dropdown.Item as="button" onSelect={() => setCategory(d)}>
-									{d.name}
+							{data.categories.map((jokeCategory) => (
+								<Dropdown.Item onClick={() => setCategory(jokeCategory)}>
+									{jokeCategory.name}
 								</Dropdown.Item>
 							))}
 						</DropdownButton>
@@ -89,7 +86,7 @@ function App() {
 					</Col>
 					<Col md={4}></Col>
 				</Row>
-			</container>
+			</Container>
 		</main>
 	);
 }
