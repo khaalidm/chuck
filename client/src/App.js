@@ -4,6 +4,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
+import Spinner from "react-bootstrap/Spinner"
 import ChuckGif from "../src/assets/chuck.jpg";
 import Image from "react-bootstrap/Image";
 import { useQuery } from "@apollo/react-hooks";
@@ -80,7 +81,7 @@ function App() {
 					<Col md={4}>
 						<div className="divParagraphStyle">
 							<p className="jokeParagraphStyle">
-								{randomJoke?.randomJoke?.content}
+								{ randomJoke?.randomJoke?.content }
 							</p>
 						</div>
 					</Col>
