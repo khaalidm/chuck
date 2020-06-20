@@ -8,7 +8,6 @@ class ChuckNorrisApi extends RESTDataSource {
 
   async getCategories() {
       const response = await this.get('jokes/categories');
-      console.log(response);
       return Array.isArray(response)
       ? response.map(category => this.categoryReducer(category))
       : [];
