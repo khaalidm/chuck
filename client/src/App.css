@@ -28,8 +28,8 @@
   color: #61dafb;
 }
 .chuck-image {
-  max-width: 1000px;
-  max-height: 400px;
+  /* max-width: 100%; */
+  /* max-height: 400px; */
   padding-top: 5px;
   padding-bottom: 10px;
 }
@@ -39,13 +39,21 @@
 .drop-down-style {
   padding-top: 15px;
 }
+.button-style {
+  padding-top: 15px;
+}
 .jokeParagraphStyle {
   text-align: center;
+  width: 100%;
+
   background-color: lightgrey;
   font-family: cursive;
   font-style: italic;
 }
 .divParagraphStyle {
+  padding-top: 15px;
+}
+.spinner-style {
   padding-top: 15px;
 }
 
