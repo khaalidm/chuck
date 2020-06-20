@@ -82,7 +82,7 @@ function App() {
 									check =true;
 								 	randomJoke?.randomJoke ? setCategory({name: randomJoke?.randomJoke?.category[0]}) : setCategory({name: "dev"})
 									console.log("I clicked a button");
-							}}>get joke</Button> }
+							}}>Get Joke</Button> }
 						</div>
 					</Col>
 					<Col>
@@ -106,7 +106,6 @@ function App() {
 								</Dropdown.Item>
 							))}
 						</DropdownButton>
-
 					</Col>
 				</Row>
 				<Row>
