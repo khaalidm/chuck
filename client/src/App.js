@@ -29,13 +29,23 @@ const GET_RANDOM_JOKE = gql`
 	}
 `;
 
+let check = true;
+let data2;
+
 function GetRandomJoke(category) {
-	const { loading, error, data } = useQuery(GET_RANDOM_JOKE, {
+	const { status, data, error, refetch, isFetching } = useQuery(GET_RANDOM_JOKE, {
 		variables: { category: category.name },
 	});
-
+	// console.log("~~~~~~~~~~~~~~~~~~~~"+ JSON.stringify(category));
 	if (error) return <h1>Something went wrong!</h1>;
-	if (loading) return <h1>Loading...</h1>;
+	// if (loading) return <h1>Loading...</h1>;	
+
+	while (check) {
+		console.log("~~~~~~~im here~~~~~~~~~");
+		// data1 = data;
+		refetch();
+		check =false;
+	}
 
 	return { randomJoke: data };
 }
@@ -46,6 +56,15 @@ function App() {
 	let { randomJoke } = GetRandomJoke(category);
 	if (error) return <h1>Something went wrong!</h1>;
 	if (loading) return <h1>Loading...</h1>;
+
+	
+	// function resetCategory()
+	// {
+	// 	if(randomJoke?.randomJoke && randomJoke?.randomJoke.category) {
+	// 		console.log({name: randomJoke.randomJoke.category[0]});
+	// 	setCategory({name: randomJoke?.randomjoke?.category[0],  __typename: "Category"});
+	// 	}
+	// }
 
 	return (
 		<main className="App">
@@ -66,10 +85,16 @@ function App() {
 							id="dropdown-basic-button"
 							title="Select Category"
 							className="drop-down-style"
+							enabeld="true"
 						>
 							{data.categories.map((jokeCategory) => (
-								<Dropdown.Item onClick={() => setCategory(jokeCategory)}>
-									{jokeCategory.name}
+								<Dropdown.Item onClick={() => { 
+								
+									setCategory(jokeCategory);
+								
+									
+								}}>
+									{JSON.stringify(jokeCategory)}
 								</Dropdown.Item>
 							))}
 						</DropdownButton>
@@ -82,6 +107,14 @@ function App() {
 							<p className="jokeParagraphStyle">
 								{randomJoke?.randomJoke?.content}
 							</p>
+						</div>
+						<div>
+							<h1>{randomJoke?.randomJoke?.category[0]}</h1>
+							{ <button onClick={() => {
+									check =true;
+								 	setCategory({name: randomJoke?.randomJoke?.category[0]});
+									console.log("I clicked a button");
+							}}>get joke</button> }
 						</div>
 					</Col>
 					<Col md={4}></Col>
