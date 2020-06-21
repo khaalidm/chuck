@@ -54,7 +54,7 @@ function App() {
 	const [category, setCategory] = useState(false);
 	let { randomJoke } = GetRandomJoke(category);
 	if (error) return <h1>Something went wrong!</h1>;
-	if (loading) return <h1>Loading...</h1>;
+	if (loading) return <div className="loading-spinner"><Spinner animation="border" /></div>;
 
 	return (
 		<main className="App">
@@ -92,7 +92,6 @@ function App() {
 															name: randomJoke?.randomJoke?.category[0],
 													  })
 													: setCategory({ name: "dev" });
-												console.log("I clicked a button");
 											}}
 										>
 											Get Joke
