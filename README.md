@@ -6,7 +6,7 @@ This is the fullstack app for the [Apollo tutorial](http://apollographql.com/doc
 
 The app is split out into two folders:
 - `client`: This is the react application that consumes the graphql endpoints from the server
-- `server`: Apollo server, Graphql, that's used to encapsulate(wrap) the chucknorris.ioo api
+- `server`: Apollo server, Graphql, that's used to encapsulate(wrap) the chucknorris.io api
 
 
 ## Installation
