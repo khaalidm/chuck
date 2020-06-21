@@ -1,25 +1,28 @@
-# Apollo tutorial
+# Chuck Norris Application
 
 This is the fullstack app for the [Apollo tutorial](http://apollographql.com/docs/tutorial/introduction.html). 🚀
 
 ## File structure
 
 The app is split out into two folders:
-- `start`: Starting point for the tutorial
-- `final`: Final version
+- `client`: This is the react application that consumes the graphql endpoints from the server
+- `server`: Apollo server, Graphql, that's used to encapsulate(wrap) the chucknorris.ioo api
 
-From within the `start` and `final` directories, there are two folders (one for `server` and one for `client`).
 
 ## Installation
 
-To run the app, run these commands in two separate terminal windows from the root:
-
 ```bash
-cd final/server && npm i && npm start
+cd client && npm install
 ```
 
 and
 
 ```bash
-cd final/client && npm i && npm start
+cd server && npm install
+```
+
+## Run
+
+```bash
+npm start
 ```
